@@ -2,3 +2,4 @@ tls.crt
 tls.key
 
 *.tgz
+.env
