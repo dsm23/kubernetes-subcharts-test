@@ -3,3 +3,6 @@ tls.key
 
 *.tgz
 .env
+
+# temporary
+secret.yaml
