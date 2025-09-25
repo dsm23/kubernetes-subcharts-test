@@ -14,5 +14,8 @@ dependencies:
 - name: vite-spa
   repository: file://charts/vite-spa
   version: 0.1.0
-digest: sha256:43206d4cfb7a2a03ee8f89086a02e592eeb6427fb16394792d86a8f75ed8e59b
-generated: "2025-09-23T16:50:27.806385+01:00"
+- name: vaultwarden
+  repository: file://charts/vaultwarden
+  version: 0.1.0
+digest: sha256:b74d59458e2af7b012150db2f155c5d827e74c572dd72b307958b28386ee9eee
+generated: "2025-09-25T13:13:01.304809+01:00"
