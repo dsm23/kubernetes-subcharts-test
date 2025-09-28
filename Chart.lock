@@ -11,11 +11,14 @@ dependencies:
 - name: svelte-kit
   repository: file://charts/svelte-kit
   version: 0.1.0
+- name: todos
+  repository: file://charts/todos
+  version: 0.1.0
 - name: vite-spa
   repository: file://charts/vite-spa
   version: 0.1.0
 - name: vaultwarden
   repository: file://charts/vaultwarden
   version: 0.1.0
-digest: sha256:b74d59458e2af7b012150db2f155c5d827e74c572dd72b307958b28386ee9eee
-generated: "2025-09-25T13:13:01.304809+01:00"
+digest: sha256:44a7e46d43838824feeb452efb5449bfb0c8e0d24cfeda75424aea7d38b7ecc2
+generated: "2025-09-29T00:38:29.424077+01:00"
