@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "imh.fullname" . }}
+  name: {{ include "ducktors.fullname" . }}
   namespace: {{ .Values.namespace | default .Release.Namespace }}
   labels:
-    {{- include "imh.labels" . | nindent 4 }}
+    {{- include "ducktors.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "imh.selectorLabels" . | nindent 6 }}
+      {{- include "ducktors.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,7 +19,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "imh.labels" . | nindent 8 }}
+        {{- include "ducktors.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -28,7 +28,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "imh.serviceAccountName" . }}
+      serviceAccountName: {{ include "ducktors.serviceAccountName" . }}
       {{- with .Values.podSecurityContext }}
       securityContext:
         {{- toYaml . | nindent 8 }}
@@ -42,21 +42,21 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-            - name: CONTENTFUL_SPACE_ID
+            - name: TURBO_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: "{{ include "imh.fullname" . }}"
-                  key: CONTENTFUL_SPACE_ID
-            - name: CONTENTFUL_ACCESS_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: "{{ include "imh.fullname" . }}"
-                  key: CONTENTFUL_ACCESS_TOKEN
-            - name: CONTENTFUL_PREVIEW_ACCESS_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: "{{ include "imh.fullname" . }}"
-                  key: CONTENTFUL_PREVIEW_ACCESS_TOKEN
+                  name: "{{ include "ducktors.fullname" . }}"
+                  key: TURBO_TOKEN
+          # - name: SSL_CERT_PATH
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: "{{ include "ducktors.fullname" . }}"
+          #       key: SSL_CERT_PATH
+          #   - name: SSL_KEY_PATH
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: "{{ include "ducktors.fullname" . }}"
+          #         key: SSL_KEY_PATH
           ports:
             - name: http
               containerPort: {{ .Values.deployment.containerPort }}

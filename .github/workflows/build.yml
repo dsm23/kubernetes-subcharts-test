@@ -36,7 +36,10 @@ jobs:
         id: install
       
       - name: Repo add
-        run: helm repo add traefik https://traefik.github.io/charts
+        run: |
+          helm repo add cert-manager https://charts.jetstack.io
+          helm repo add kubernetes-dashboard https://kubernetes.github.io/dashboard/
+          helm repo add traefik https://traefik.github.io/charts
 
       - name: Dependency build check
         run: helm dependency build
