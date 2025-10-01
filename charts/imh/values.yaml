@@ -53,13 +53,15 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+deployment:
+  containerPort: 3000
+
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   type: ClusterIP
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
-  containerPort: 3000
-  port: 80
+  httpPort: 80
 
 # -- Expose the service via gateway-api HTTPRoute
 # Requires Gateway API resources and suitable controller installed within the cluster
@@ -83,7 +85,17 @@ httpRoute:
       - path:
           type: PathPrefix
           value: /
-  #   filters:
+      filters:
+        - type: ExtensionRef
+          extensionRef:  # Headers Middleware Definition
+            group: traefik.io
+            kind: Middleware
+            name: secure-headers
+        - type: ExtensionRef
+          extensionRef: # IP AllowList Middleware Definition
+            group: traefik.io
+            kind: Middleware
+            name: ip-allowlist
   #   - type: RequestHeaderModifier
   #     requestHeaderModifier:
   #       set:

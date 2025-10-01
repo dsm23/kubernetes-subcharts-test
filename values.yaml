@@ -1,3 +1,7 @@
+cert-manager:
+  crds:
+    enabled: true
+
 ####################################################################################################################################
 # traefik values.yaml
 ####################################################################################################################################
@@ -84,10 +88,13 @@ traefik:
         namespacePolicy:
           from: All
         mode: Terminate
-        certificateRefs:    
+        certificateRefs:
           - kind: Secret
-            name: local-selfsigned-tls  # the Secret we created before the installation
+            # name: local-selfsigned-tls  # the Secret we created before the installation
+            name: whoami-tls-le
             group: ""
+  
+  
 
   # Enable Observability
   logs:

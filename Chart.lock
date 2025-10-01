@@ -1,7 +1,16 @@
 dependencies:
+- name: cert-manager
+  repository: https://charts.jetstack.io
+  version: v1.18.2
 - name: traefik
   repository: https://traefik.github.io/charts
   version: 37.1.1
+- name: kubernetes-dashboard
+  repository: https://kubernetes.github.io/dashboard
+  version: 7.13.0
+- name: ducktors
+  repository: file://charts/ducktors
+  version: 0.1.0
 - name: imh
   repository: file://charts/imh
   version: 0.1.0
@@ -20,5 +29,5 @@ dependencies:
 - name: vaultwarden
   repository: file://charts/vaultwarden
   version: 0.1.0
-digest: sha256:44a7e46d43838824feeb452efb5449bfb0c8e0d24cfeda75424aea7d38b7ecc2
-generated: "2025-09-29T00:38:29.424077+01:00"
+digest: sha256:bd5361d70c72b8cada5050ec6b4ac8d9fffc47505332b93372ce2bd2ee2893c6
+generated: "2025-10-01T14:33:28.068797+01:00"
