@@ -49,28 +49,40 @@ dependencies:
     condition: imh.enabled
     tags:
       - frontend-template
+      - gateway
   - name: next
     version: 0.1.0
     repository: file://charts/next
     tags:
       - frontend-template
+      - gateway
+  - name: nginx
+    version: 0.1.0
+    repository: file://charts/nginx
+    tags:
+      - ingress
+      - nginx
   - name: svelte-kit
     version: 0.1.0
     repository: file://charts/svelte-kit
     tags:
       - frontend-template
+      - gateway
   - name: todos
     version: 0.1.0
     repository: file://charts/todos
     tags:
       - redux-example
+      - gateway
   - name: vite-spa
     version: 0.1.0
     repository: file://charts/vite-spa
     tags:
       - frontend-template
+      - gateway
   - name: vaultwarden
     version: 0.1.0
     repository: file://charts/vaultwarden
     tags:
+      - gateway
       - password-manager
