@@ -25,13 +25,13 @@ appVersion: "1.16.0"
 
 dependencies:
   - name: cert-manager
-    version: 1.18.2
+    version: 1.19.0
     repository: https://charts.jetstack.io
     alias: cert-manager
     tags:
       - cert-manager
   - name: traefik
-    version: 37.1.1
+    version: 37.1.2
     repository: https://traefik.github.io/charts
     tags:
       - proxy
@@ -50,6 +50,12 @@ dependencies:
     tags:
       - frontend-template
       - gateway
+  - name: mailpit
+    version: 0.1.0
+    repository: file://charts/mailpit
+    tags:
+      - gateway
+      - smtp-server
   - name: next
     version: 0.1.0
     repository: file://charts/next
