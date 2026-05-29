@@ -35,9 +35,6 @@ dependencies:
     repository: https://traefik.github.io/charts
     tags:
       - proxy
-  - name: kubernetes-dashboard
-    version: 7.13.0
-    repository: https://kubernetes.github.io/dashboard
   - name: ducktors
     version: 0.1.0
     repository: file://charts/ducktors

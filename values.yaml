@@ -75,6 +75,7 @@ traefik:
 
   ## Gateway Listeners
   gateway:
+    name: traefik-gateway
     listeners:
       web:           # HTTP listener that matches entryPoint `web`
         port: 80
@@ -94,6 +95,8 @@ traefik:
             name: whoami-tls-le
             group: ""
   
+  gatewayClass:
+    name: traefik
   
 
   # Enable Observability
@@ -108,3 +111,12 @@ traefik:
   metrics:
     prometheus:
       enabled: true
+      # The entry point metrics will be available on (usually internal/admin)
+      entryPoint: metrics
+      # Add standard Prometheus metrics
+      addRoutersLabels: true
+      addServicesLabels: true
+      additionalArguments:
+        - "--tracing.otel=true"
+        - "--tracing.otel.grpcendpoint=otel-collector.observability:4317" # Adjust endpoint as needed
+        - "--tracing.otel.httpendpoint=otel-collector.observability:4318" # Adjust endpoint as needed

@@ -69,8 +69,6 @@ httpRoute:
   # Which Gateways this Route is attached to.
   parentRefs:
     - name: traefik-gateway
-      # sectionName: http
-    # namespace: default
   # Hostnames matching HTTP header.
   hostnames:
     -  "vite.docker.localhost"
