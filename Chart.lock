@@ -5,9 +5,6 @@ dependencies:
 - name: traefik
   repository: https://traefik.github.io/charts
   version: 37.1.2
-- name: kubernetes-dashboard
-  repository: https://kubernetes.github.io/dashboard
-  version: 7.13.0
 - name: ducktors
   repository: file://charts/ducktors
   version: 0.1.0
@@ -35,5 +32,5 @@ dependencies:
 - name: vaultwarden
   repository: file://charts/vaultwarden
   version: 0.1.0
-digest: sha256:b535db013f6cf77c10671f386e445a807bb0cc681bb74ecce909ef8e1ea0c7bf
-generated: "2025-11-10T01:54:47.966506Z"
+digest: sha256:1ccfa857173ae6b44602f2bb76af9cc8549f13c717326e24ca8b0d03bc3e2ff4
+generated: "2026-05-29T15:30:47.233597+01:00"
